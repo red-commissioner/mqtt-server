@@ -1,13 +1,13 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*
 import paho.mqtt.client as mqtt
-from helper import gateway_config as config
+from config import gateway_config as gateway_config
 from requests import post
 from ssl import PROTOCOL_TLS
 
 
-SERVER, PORT = config['server'], config['port']
-username, password = config['username'], config['password']
+SERVER, PORT = gateway_config['server'], gateway_config['port']
+username, password = gateway_config['username'], gateway_config['password']
 topic = '#'
 
 

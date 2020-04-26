@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*
 import paho.mqtt.client as mqtt
-from helper import config
+from config import commissioner_config as config
 from time import sleep
 from random import choice
 
