@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*
 
 commissioner_config = {
-    'server': '192.168.1.52',
+    'server': '127.0.0.1',
     'port': 9001,
     'username': 'tctmqtt',
     'password': 'ansonlab',
