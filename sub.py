@@ -6,7 +6,6 @@ from requests import post
 from ssl import PROTOCOL_TLS
 
 
-BASE_URL = 'http://127.0.0.1:8000/mqtt'
 SERVER, PORT = config['server'], config['port']
 username, password = config['username'], config['password']
 topic = '#'
@@ -21,9 +20,7 @@ def on_connect(client, userdata, flags, rc):
 
 
 def on_message(client, userdata, message):
-    post_data = {'topic': message.topic, 'qos': message.qos, 'payload': message.payload}
-    url = f'{BASE_URL}/{message.topic}'
-    print(f"url is {url} data is {post_data}")
+    print(f"{SERVER}/{message.topic}/p={message.payload} (QoS={message.qos})")
 
 
 client = mqtt.Client('subscribber', transport='tcp')
@@ -34,3 +31,4 @@ client.tls_set(ca_certs=None, certfile=None, keyfile=None, cert_reqs=None,
 client.username_pw_set(username=username, password=password)
 client.connect(SERVER, PORT)
 client.loop_forever()
+
