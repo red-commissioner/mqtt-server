@@ -8,7 +8,7 @@ from ssl import PROTOCOL_TLS
 
 SERVER, PORT = gateway_config['server'], gateway_config['port']
 username, password = gateway_config['username'], gateway_config['password']
-topic = '#'
+topic = '+/ui/#'
 
 
 def on_connect(client, userdata, flags, rc):

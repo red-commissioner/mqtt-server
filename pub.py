@@ -30,12 +30,17 @@ while not connected:
     print("not connected")
     sleep(0.1)  # wait for it...
 
+stations = ['retiro_1', 'beatriu']
+topics = ['tm', 'tp']
+payloads = range(50,100)
+
 try:
     while True:
-        topic, payload = "CaSesLlucies/GW/C2S", "00007f0111"
+        topic = choice(stations) + '/gw/ui/' + choice(topics)
+        payload = choice(payloads)
         print(f'About to publish on {topic} payload: {payload}')
         res = client.publish(topic, payload)
-        sleep(0.4)
+        sleep(1)
 except KeyboardInterrupt:
     client.disconnect()
     client.loop_stop()
